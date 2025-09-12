@@ -1,16 +1,17 @@
 from tkinter import *
 from tkinter import filedialog
 from tkinter import ttk
+import subprocess ,sys
 def show():         
     v1 = float(val1.get())
     v2 = float(val2.get())
     v3 = float(val3.get())
     label.config(text= (v1-(v3-v2)*2))
 def exit(): 
-    print("exot")
     s=label.cget('text')
     with open("erd.txt",'w') as f:
         f.write(str(s))
+    subprocess.run(['python3','spcal.py'])
     root.destroy()
 root = Tk()
 root.title('erd')
@@ -25,7 +26,7 @@ frame4 = ttk.LabelFrame(root,text="erd(mm)")
 frame4.pack()
 val1= StringVar()
 val1.set('600')
-sp1=ttk.Spinbox(frame1,format='%3.1f',state='readonly',textvariable=val1,from_=500,to=700,increment=0.5,command=show)
+sp1=ttk.Spinbox(frame1,format='%3.1f',textvariable=val1,from_=500,to=700,increment=0.5,command=show)
 sp1.pack()
 val2 = StringVar()
 val2.set('1')
