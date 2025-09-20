@@ -38,11 +38,11 @@ def openF():
         return (float(s))
     else: return (600)
 def callback(arg1, arg2, arg3): show()
-root = Tk()
-root.title('spoke length')
+w = Tk()
+w.title('spoke length')
 s = openF()
 textList = ["rim erd(mm)","穴数","end幅(mm)","pcd(mm)","end-flange(mm)","組数","spoke length(mm)"]
-fList = [ttk.LabelFrame(root,text=i) for i in textList]
+fList = [ttk.LabelFrame(w,text=i) for i in textList]
 for i in fList: i.pack()
 vList = [DoubleVar() for i in range(6)]
 valSetList = [s,"32","100","38","16","6"]
@@ -58,4 +58,4 @@ label=ttk.Label(fList[6])
 label.pack()
 vList[0].trace_add(('write'),callback)
 show()
-root.mainloop()
+w.mainloop()
