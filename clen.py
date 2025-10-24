@@ -17,14 +17,13 @@ def pcr(h,l,t):
 def mid(a,b): return ((a+b)/2)
 def clen(f,r,c,th): return((f/4+f*th/yen+c+r/4-r*th/yen)*2)
 def show():         
-    vs = [i.get() for i in vList]
-    f=pcr(600,10,vs[0])
-    r=pcr(600,10,vs[1])
-    ac=(vs[2])
+    [fg,rg,ac]=[i.get() for i in vList]
+    f=pcr(600,10,fg)
+    r=pcr(600,10,rg)
     bc=f-r
     ab=sqrt(ac*ac-bc*bc)
     th=asin(bc/ac)
-    d=abs(clen(vs[0],vs[1],(ab/cPitch),th))
+    d=abs(clen(f,r,(ab/cPitch),th))
     label.config(text=str(round(d,1)))
 def callback(a,b,c): show()
 w = Tk()
