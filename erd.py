@@ -2,8 +2,8 @@ from tkinter import *
 from tkinter import ttk
 import subprocess
 def show():         
-    vs = [i.get() for i in vList]
-    label.config(text= (vs[0]-(vs[2]-vs[1])*2))
+    [rd,t,dp] = [i.get() for i in vList]
+    label.config(text=(rd/2-(dp-t))*2)
 def exit(): 
     s=label.cget('text')
     with open("erd.txt",'w') as f:
